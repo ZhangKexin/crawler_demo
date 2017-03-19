@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * Created by zkx on 2017/3/19.
  */
-public class PdfHandler {
+public class PdfTransfer {
     public static void main(String[] args) {
         try {
             PDDocument document = PDDocument.load(new File("C:\\Users\\zkx\\Desktop\\1203174839.pdf"));
