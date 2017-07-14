@@ -1,4 +1,4 @@
-package com.zkx.crawler_demo;
+package com.aladdin.crawler_demo.pdfhandler;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * Created by zkx on 2017/3/19.
  */
-public class PdfTransfer {
+public class PdfHandler {
     public static void main(String[] args) {
         try {
             PDDocument document = PDDocument.load(new File("C:\\Users\\zkx\\Desktop\\1203174839.pdf"));

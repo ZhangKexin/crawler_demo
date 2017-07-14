@@ -1,5 +1,5 @@
 
-package com.zkx.crawler_demo;
+package com.aladdin.crawler_demo.crawler;
 
 import edu.uci.ics.crawler4j.crawler.CrawlConfig;
 import edu.uci.ics.crawler4j.crawler.CrawlController;
