@@ -2,6 +2,7 @@ package com.aladdin.demo.controller;
 
 import com.aladdin.demo.entity.LoginCommand;
 import com.aladdin.demo.entity.User;
+import com.aladdin.demo.entity.app.LoginInfo;
 import com.aladdin.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -50,7 +51,7 @@ public class LoginController {
 
     @RequestMapping("login")
     @ResponseBody
-    public Object login(@RequestParam(required = false) Long account, String phone, String password) {
-        LoginInfo loginInfo = userService.login(account, phone, password);
+    public Object login(@RequestParam(required = false) String username, String phone, String password) {
+        LoginInfo loginInfo = userService.login(username, phone, password);
     }
 }

@@ -4,6 +4,7 @@ import com.aladdin.demo.dao.LoginLogDao;
 import com.aladdin.demo.dao.UserDao;
 import com.aladdin.demo.entity.LoginLog;
 import com.aladdin.demo.entity.User;
+import com.aladdin.demo.entity.app.LoginInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,5 +49,9 @@ public class UserService {
         loginLog.setIp(user.getLastIp());
         loginLog.setLoginDate(user.getLastVisit());
         loginLogDao.insertLoginLog(loginLog);
+    }
+
+    public LoginInfo login(String userName, String phone, String password) {
+
     }
 }

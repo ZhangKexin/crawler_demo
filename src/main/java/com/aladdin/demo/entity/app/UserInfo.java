@@ -1,5 +1,6 @@
 package com.aladdin.demo.entity.app;
 
+import com.aladdin.demo.util.serialilzer.IntegerJsonSerializer;
 import com.aladdin.demo.util.serialilzer.LongJsonSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -9,32 +10,64 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 public class UserInfo {
     @JsonSerialize(using = LongJsonSerializer.class)
     private Long userId;
-    private String showName;
     private String userName;
     private String userImage;
-    private String nickName;
     private String signature;
-    private String thirdPartyCode;
-    @JsonSerialize(
-            using = IntegerJsonSerializer.class
-    )
+    @JsonSerialize(using = IntegerJsonSerializer.class)
     private int sex;
-    private String userPhone;
-    private String remarkName;
-    private String userAccount;
-    @JsonSerialize(
-            using = IntegerJsonSerializer.class
-    )
-    private Integer provinceId;
-    @JsonSerialize(
-            using = IntegerJsonSerializer.class
-    )
-    private Integer cityId;
-    private String province;
-    private String city;
-    @JsonSerialize(
-            using = BooleanJsonSerializer.class
-    )
-    private Boolean isStarFriend;
-    private String rowId;
+    private String phone;
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public UserInfo setUserId(Long userId) {
+        this.userId = userId;
+        return this;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public UserInfo setUserName(String userName) {
+        this.userName = userName;
+        return this;
+    }
+
+    public String getUserImage() {
+        return userImage;
+    }
+
+    public UserInfo setUserImage(String userImage) {
+        this.userImage = userImage;
+        return this;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public UserInfo setSignature(String signature) {
+        this.signature = signature;
+        return this;
+    }
+
+    public int getSex() {
+        return sex;
+    }
+
+    public UserInfo setSex(int sex) {
+        this.sex = sex;
+        return this;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public UserInfo setPhone(String phone) {
+        this.phone = phone;
+        return this;
+    }
 }
