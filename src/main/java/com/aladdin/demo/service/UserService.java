@@ -53,5 +53,8 @@ public class UserService {
 
     public LoginInfo login(String userName, String phone, String password) {
 
+        
+        LoginInfo loginInfo = new LoginInfo();
+        loginInfo.setToken(token);
     }
 }

@@ -3,7 +3,9 @@ package com.aladdin.demo.controller;
 import com.aladdin.demo.entity.LoginCommand;
 import com.aladdin.demo.entity.User;
 import com.aladdin.demo.entity.app.LoginInfo;
+import com.aladdin.demo.exception.UserException;
 import com.aladdin.demo.service.UserService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,7 +53,11 @@ public class LoginController {
 
     @RequestMapping("login")
     @ResponseBody
-    public Object login(@RequestParam(required = false) String username, String phone, String password) {
+    public Object login(@RequestParam(required = false) String username, @RequestParam(required = false) String
+            phone, String password) {
+        if ((StringUtils.isBlank(username) && StringUtils.isBlank(phone)) || StringUtils.isBlank(password)) {
+            throw new UserException()
+        }
         LoginInfo loginInfo = userService.login(username, phone, password);
     }
 }
