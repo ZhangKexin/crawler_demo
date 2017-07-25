@@ -1,6 +1,9 @@
 package com.aladdin.demo.aspect;
 
+import com.aladdin.demo.common.CrawlerConstant;
 import com.aladdin.demo.entity.Result;
+import com.aladdin.demo.exception.CrawlerErrorNo;
+import com.aladdin.demo.exception.ErrorNoException;
 import com.aladdin.demo.exception.UserException;
 import com.aladdin.demo.util.CommonUtils;
 import com.aladdin.demo.util.LogHome;
@@ -14,11 +17,12 @@ import org.aspectj.lang.annotation.Pointcut;
 public class LogAspect {
 
     @Pointcut("execution(* com.aladdin..control.*.*(..))")
-    public void logAll() {}
+    public void logAll() {
+    }
 
     /**
      * 切接口，当hxh.control中所有类的所有方法被执行时
-     * 
+     *
      * @param joinpoint
      */
     @Around("logAll()")
@@ -62,12 +66,12 @@ public class LogAspect {
         } catch (ErrorNoException e) {
             LogHome.getLog().error("接口访问报错[" + signature.getDeclaringTypeName() + "." + signature.getName() + "]", e);
             int errorNo = e.getErrorNo();
-            Result result = CommonUtils.generateErrorResult(errorNo, UserConstant.USER_ERROR_NO.getName(errorNo));
+            Result result = CommonUtils.generateErrorResult(errorNo, CrawlerConstant.CRAWLER_ERROR_NO.getName(errorNo));
             return result;
         } catch (Throwable t) {
             LogHome.getLog().error("接口访问报错[" + signature.getDeclaringTypeName() + "." + signature.getName() + "]", t);
-            int errorNo = UserErrorNo.SERVER_INTERNAL_ERROR;
-            Result result = CommonUtils.generateErrorResult(errorNo, UserConstant.USER_ERROR_NO.getName(errorNo));
+            int errorNo = CrawlerErrorNo.SERVER_INTERNAL_ERROR;
+            Result result = CommonUtils.generateErrorResult(errorNo, CrawlerConstant.CRAWLER_ERROR_NO.getName(errorNo));
             return result;
         }
     }

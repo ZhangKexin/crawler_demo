@@ -1,6 +1,8 @@
 package com.aladdin.demo.exception;
 
 
+import com.aladdin.demo.common.CrawlerConstant;
+
 public class ErrorNoException extends RuntimeException {
 
     private static final long serialVersionUID = 1747159748002286866L;
@@ -12,7 +14,7 @@ public class ErrorNoException extends RuntimeException {
     }
 
     public ErrorNoException(Integer errorNo) {
-        super(UserConstant.USER_ERROR_NO.getName(errorNo));
+        super(CrawlerConstant.CRAWLER_ERROR_NO.getName(errorNo));
         this.errorNo = errorNo;
     }
 
