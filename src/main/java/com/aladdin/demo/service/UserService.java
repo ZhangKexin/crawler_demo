@@ -1,10 +1,17 @@
 package com.aladdin.demo.service;
 
+import com.aladdin.demo.common.CrawlerConstant;
 import com.aladdin.demo.dao.LoginLogDao;
 import com.aladdin.demo.dao.UserDao;
 import com.aladdin.demo.entity.LoginLog;
 import com.aladdin.demo.entity.User;
 import com.aladdin.demo.entity.app.LoginInfo;
+import com.aladdin.demo.entity.app.UserInfo;
+import com.aladdin.demo.exception.UserErrorNo;
+import com.aladdin.demo.exception.ErrorNoException;
+import com.aladdin.demo.util.PasswordHash;
+import com.aladdin.demo.util.UserPassUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,9 +59,37 @@ public class UserService {
     }
 
     public LoginInfo login(String userName, String phone, String password) {
+        User user = new User();
+        if (StringUtils.isNotBlank(phone)) {
+            user = userDao.queryUserByPhone(phone);
+        }
+        if (StringUtils.isNotBlank(userName)) {
+            user = userDao.queryUserByUserName(userName);
+        }
+        checkUser(user, password);
 
-        
+        String token = UserPassUtils.generateCookie(user, CrawlerConstant.Product.APP_DD);
+
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUserId(user.getUserId())
+                .setPhone(user.getPhone())
+                .setSex()
+                .setSignature()
+                .setUserImage()
+                .setUserName();
+
         LoginInfo loginInfo = new LoginInfo();
-        loginInfo.setToken(token);
+        loginInfo.setToken(token)
+                .setUserInfo(userInfo);
+        return loginInfo;
+    }
+
+    private void checkUser(User user, String password) {
+        if (user == null) {
+            throw new ErrorNoException(UserErrorNo.ERR_INVALID_UNAME_OR_PASSWD);
+        }
+        if (!PasswordHash.validatePassword(password, user.getPassword())) {
+            throw new ErrorNoException(UserErrorNo.ERR_INVALID_UNAME_OR_PASSWD);
+        }
     }
 }

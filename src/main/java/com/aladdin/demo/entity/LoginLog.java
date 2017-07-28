@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class LoginLog {
     private int loginLogId;
-    private int userId;
+    private Long userId;
     private String ip;
     private Date loginDate;
 
@@ -19,11 +19,11 @@ public class LoginLog {
         this.loginLogId = loginLogId;
     }
 
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

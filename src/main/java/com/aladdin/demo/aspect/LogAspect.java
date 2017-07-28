@@ -2,7 +2,7 @@ package com.aladdin.demo.aspect;
 
 import com.aladdin.demo.common.CrawlerConstant;
 import com.aladdin.demo.entity.Result;
-import com.aladdin.demo.exception.CrawlerErrorNo;
+import com.aladdin.demo.exception.UserErrorNo;
 import com.aladdin.demo.exception.ErrorNoException;
 import com.aladdin.demo.exception.UserException;
 import com.aladdin.demo.util.CommonUtils;
@@ -70,7 +70,7 @@ public class LogAspect {
             return result;
         } catch (Throwable t) {
             LogHome.getLog().error("接口访问报错[" + signature.getDeclaringTypeName() + "." + signature.getName() + "]", t);
-            int errorNo = CrawlerErrorNo.SERVER_INTERNAL_ERROR;
+            int errorNo = UserErrorNo.SERVER_INTERNAL_ERROR;
             Result result = CommonUtils.generateErrorResult(errorNo, CrawlerConstant.CRAWLER_ERROR_NO.getName(errorNo));
             return result;
         }
