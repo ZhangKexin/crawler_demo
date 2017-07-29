@@ -67,7 +67,11 @@ public class LoginController {
         return result;
     }
 
-    @RequestMapping("")
+    @RequestMapping("recharge")
+    @ResponseBody
+    public Object recharge(Long userId){
+
+    }
 
 
 }

@@ -19,6 +19,26 @@ public class User implements Serializable {
     private String image;
     private String imageUrl;
     private Picture imagePic;
+    private Long registerTime;
+    private Boolean payed;
+
+    public Boolean getPayed() {
+        return payed;
+    }
+
+    public User setPayed(Boolean payed) {
+        this.payed = payed;
+        return this;
+    }
+
+    public Long getRegisterTime() {
+        return registerTime;
+    }
+
+    public User setRegisterTime(Long registerTime) {
+        this.registerTime = registerTime;
+        return this;
+    }
 
     public String getImage() {
         return image;

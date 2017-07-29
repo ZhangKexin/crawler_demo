@@ -16,6 +16,27 @@ public class UserInfo {
     @JsonSerialize(using = IntegerJsonSerializer.class)
     private int sex;
     private String phone;
+    @JsonSerialize(using = LongJsonSerializer.class)
+    private Long registerTime;
+    private String fmtRegisterTime;
+
+    public Long getRegisterTime() {
+        return registerTime;
+    }
+
+    public UserInfo setRegisterTime(Long registerTime) {
+        this.registerTime = registerTime;
+        return this;
+    }
+
+    public String getFmtRegisterTime() {
+        return fmtRegisterTime;
+    }
+
+    public UserInfo setFmtRegisterTime(String fmtRegisterTime) {
+        this.fmtRegisterTime = fmtRegisterTime;
+        return this;
+    }
 
     public Long getUserId() {
         return userId;
