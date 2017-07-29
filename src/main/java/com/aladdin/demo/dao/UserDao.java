@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by zkx on 2017/3/20.
@@ -17,11 +19,30 @@ public class UserDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    private BaseDao<User> userDao;
+
+    private static final String NAMESPACE_USER = "";
+
+    public User queryUserByUserName(String userName) {
+        // TODO: 2017/7/29
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("userName", userName);
+        return userDao.selectOne(NAMESPACE_USER + ".queryUserByUserName", params);
+    }
+
+    public User queryUserByPhone(String phone) {
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("phone", phone);
+        return userDao.selectOne(NAMESPACE_USER + ".queryUserByUserName", params);
+    }
+
     /*根据用户名密码获取匹配用户数*/
     public int getMatchCount(String userName, String password) {
         String sqlStr = "select count(*) from t_user where user_name=? and password=?";
         return jdbcTemplate.queryForObject(sqlStr, new Object[]{userName, password}, Integer.class);
     }
+
 
     /*根据用户名获取user对象*/
     public User findUserByUserName(final String userName) {
@@ -30,7 +51,7 @@ public class UserDao {
 //        user = jdbcTemplate.queryForObject(sqlStr, new Object[]{userName}, User.class);
         jdbcTemplate.query(sqlStr, new Object[]{userName}, new RowCallbackHandler() {
             public void processRow(ResultSet resultSet) throws SQLException {
-                user.setUserId(resultSet.getInt("user_id"));
+                user.setUserId(resultSet.getLong("user_id"));
                 user.setUserName(userName);
                 user.setCredits(resultSet.getInt("credits") + 5);
             }

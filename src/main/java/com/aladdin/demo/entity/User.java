@@ -14,8 +14,43 @@ public class User implements Serializable {
     private int credits;
     private String lastIp;
     private Date lastVisit;
+    private Integer sex;
+    private String signature;
+    private String image;
+    private String imageUrl;
+    private Picture imagePic;
+
+    public String getImage() {
+        return image;
+    }
+
+    public User setImage(String image) {
+        this.image = image;
+        this.imagePic =;
+        this.imageUrl =;
+        return this;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public User setSignature(String signature) {
+        this.signature = signature;
+        return this;
+    }
+
+    public Integer getSex() {
+        return sex;
+    }
+
+    public User setSex(Integer sex) {
+        this.sex = sex;
+        return this;
+    }
 
     public String getPhone() {
+
         return phone;
     }
 
@@ -28,47 +63,53 @@ public class User implements Serializable {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public User setUserId(Long userId) {
         this.userId = userId;
+        return this;
     }
 
     public String getUserName() {
         return userName;
     }
 
-    public void setUserName(String userName) {
+    public User setUserName(String userName) {
         this.userName = userName;
+        return this;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public User setPassword(String password) {
         this.password = password;
+        return this;
     }
 
     public int getCredits() {
         return credits;
     }
 
-    public void setCredits(int credits) {
+    public User setCredits(int credits) {
         this.credits = credits;
+        return this;
     }
 
     public String getLastIp() {
         return lastIp;
     }
 
-    public void setLastIp(String lastIp) {
+    public User setLastIp(String lastIp) {
         this.lastIp = lastIp;
+        return this;
     }
 
     public Date getLastVisit() {
         return lastVisit;
     }
 
-    public void setLastVisit(Date lastVisit) {
+    public User setLastVisit(Date lastVisit) {
         this.lastVisit = lastVisit;
+        return this;
     }
 }

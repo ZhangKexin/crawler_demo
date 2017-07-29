@@ -1,7 +1,11 @@
 package com.aladdin.demo.dao;
 
+import javafx.beans.binding.ObjectExpression;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by zkx on 2017/3/22.
@@ -25,5 +29,17 @@ public class BaseDao<E> extends SqlSessionDaoSupport {
 
     public E selectOne(String sql) {
         return getSqlSession().selectOne(sql);
+    }
+
+    public E selectOne(String sql, Map<String, Object> params) {
+        return getSqlSession().selectOne(sql, params);
+    }
+
+    public List<E> selectList(String sql, Object params) {
+        return getSqlSession().selectList(sql, params);
+    }
+
+    public Map<Object, E> selectMap(String sql, Object params, String key) {
+        return getSqlSession().selectMap(sql, params, key);
     }
 }

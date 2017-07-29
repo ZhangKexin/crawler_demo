@@ -73,10 +73,10 @@ public class UserService {
         UserInfo userInfo = new UserInfo();
         userInfo.setUserId(user.getUserId())
                 .setPhone(user.getPhone())
-                .setSex()
-                .setSignature()
-                .setUserImage()
-                .setUserName();
+                .setSex(user.getSex())
+                .setSignature(user.getSignature())
+                .setUserImage(user.getImage())
+                .setUserName(user.getUserName());
 
         LoginInfo loginInfo = new LoginInfo();
         loginInfo.setToken(token)

@@ -1,11 +1,13 @@
 package com.aladdin.demo.controller;
 
 import com.aladdin.demo.entity.LoginCommand;
+import com.aladdin.demo.entity.Result;
 import com.aladdin.demo.entity.User;
 import com.aladdin.demo.entity.app.LoginInfo;
 import com.aladdin.demo.exception.UserErrorNo;
 import com.aladdin.demo.exception.ErrorNoException;
 import com.aladdin.demo.service.UserService;
+import com.aladdin.demo.util.CommonUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -60,5 +62,12 @@ public class LoginController {
             throw new ErrorNoException(UserErrorNo.PARAM_EMPTY);
         }
         LoginInfo loginInfo = userService.login(username, phone, password);
+        Result result = CommonUtils.generateSuccessResult();
+        result.setData(loginInfo);
+        return result;
     }
+
+    @RequestMapping("")
+
+
 }
