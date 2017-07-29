@@ -1,6 +1,7 @@
-package com.aladdin.demo.dao;
+package com.aladdin.demo.crawler.dao;
 
-import com.aladdin.demo.entity.ZhihuQuestion;
+import com.aladdin.demo.dao.BaseDao;
+import com.aladdin.demo.crawler.entity.ZhihuQuestion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +12,7 @@ import java.util.List;
  */
 @Component
 public class ZhihuQuestionDao {
-    private static final String NAMESPACE_ZHIHUQUESTION = "com.aladdin.demo.dao.ZhihuQuestionDao";
+    private static final String NAMESPACE_ZHIHUQUESTION = "com.aladdin.demo.crawler.dao.ZhihuQuestionDao";
 
     @Autowired
     private BaseDao<ZhihuQuestion> questionDao;

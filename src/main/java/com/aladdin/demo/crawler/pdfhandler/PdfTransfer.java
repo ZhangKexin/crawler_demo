@@ -1,4 +1,4 @@
-package com.aladdin.demo.pdfhandler;
+package com.aladdin.demo.crawler.pdfhandler;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;

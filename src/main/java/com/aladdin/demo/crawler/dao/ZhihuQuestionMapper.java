@@ -1,6 +1,6 @@
-package com.aladdin.demo.dao;
+package com.aladdin.demo.crawler.dao;
 
-import com.aladdin.demo.entity.ZhihuQuestion;
+import com.aladdin.demo.crawler.entity.ZhihuQuestion;
 
 import java.util.List;
 

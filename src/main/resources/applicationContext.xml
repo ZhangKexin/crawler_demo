@@ -29,7 +29,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="crawlerDataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
-        <property name="mapperLocations" value="classpath*:com/aladdin/**/sql/*.xml"/>
+        <property name="mapperLocations" value="classpath*:com/aladdin/demo/crawler/sql/*.xml"/>
     </bean>
     <bean id="baseDao" class="com.aladdin.demo.dao.BaseDao">
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>

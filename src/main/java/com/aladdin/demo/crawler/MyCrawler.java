@@ -1,6 +1,6 @@
 package com.aladdin.demo.crawler;
 
-import com.aladdin.demo.entity.ZhihuQuestion;
+import com.aladdin.demo.crawler.entity.ZhihuQuestion;
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.crawler.WebCrawler;
 import edu.uci.ics.crawler4j.parser.HtmlParseData;

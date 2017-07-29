@@ -1,9 +1,9 @@
-package com.aladdin.demo.service;
+package com.aladdin.demo.crawler.service;
 
 import com.aladdin.demo.common.CrawlerConstant;
 import com.aladdin.demo.crawler.MyCrawler;
-import com.aladdin.demo.dao.ZhihuQuestionDao;
-import com.aladdin.demo.entity.ZhihuQuestion;
+import com.aladdin.demo.crawler.dao.ZhihuQuestionDao;
+import com.aladdin.demo.crawler.entity.ZhihuQuestion;
 import edu.uci.ics.crawler4j.crawler.CrawlConfig;
 import edu.uci.ics.crawler4j.crawler.CrawlController;
 import edu.uci.ics.crawler4j.fetcher.PageFetcher;

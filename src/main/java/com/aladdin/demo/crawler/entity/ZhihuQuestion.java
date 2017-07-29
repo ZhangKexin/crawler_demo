@@ -1,4 +1,4 @@
-package com.aladdin.demo.entity;
+package com.aladdin.demo.crawler.entity;
 
 /**
  * Created by zkx on 2017/3/22.

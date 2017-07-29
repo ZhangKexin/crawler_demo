@@ -1,6 +1,6 @@
 package com.aladdin.demo.controller;
 
-import com.aladdin.demo.service.CrawlerService;
+import com.aladdin.demo.crawler.service.CrawlerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,7 @@ import java.util.Map;
  * Created by zkx on 2017/3/22.
  */
 @Controller
-@RequestMapping("crawler")
+@RequestMapping("v1/crawler")
 public class CrawlerController {
     @Autowired
     private CrawlerService crawlerService;

@@ -1,4 +1,4 @@
-package com.aladdin.demo.pdfhandler;
+package com.aladdin.demo.crawler.pdfhandler;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
