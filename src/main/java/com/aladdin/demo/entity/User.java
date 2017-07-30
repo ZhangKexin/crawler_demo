@@ -1,5 +1,8 @@
 package com.aladdin.demo.entity;
 
+import com.alibaba.fastjson.JSON;
+import org.apache.commons.lang.StringUtils;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -11,13 +14,12 @@ public class User implements Serializable {
     private String userName;
     private String password;
     private String phone;
-    private int credits;
+    private Integer credits;
     private String lastIp;
     private Date lastVisit;
     private Integer sex;
     private String signature;
     private String image;
-    private String imageUrl;
     private Picture imagePic;
     private Long registerTime;
     private Boolean payed;
@@ -46,9 +48,14 @@ public class User implements Serializable {
 
     public User setImage(String image) {
         this.image = image;
-        this.imagePic =;
-        this.imageUrl =;
+        if (StringUtils.isNotBlank(image)) {
+            this.imagePic = JSON.parseObject(image, Picture.class);
+        }
         return this;
+    }
+
+    public Picture getImagePic() {
+        return imagePic;
     }
 
     public String getSignature() {
