@@ -16,13 +16,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ZoneController {
 
 
-
     @Autowired
     private ZoneService zoneService;
 
     @RequestMapping("list")
     @ResponseBody
-    public Result queryZoneList(Long userId,) {
+    public Result queryZoneList(Long userId) {
         Result result = CommonUtils.generateSuccessResult();
         result.setData(zoneService.queryZoneList(userId));
         return result;
@@ -30,7 +29,9 @@ public class ZoneController {
 
     @RequestMapping("freeze")
     @ResponseBody
-    public Result freezeZone(){
-
+    public Result freezeZone(Integer zoneId) {
+        Result result = CommonUtils.generateSuccessResult();
+        zoneService.freeZone(zoneId);
+        return result;
     }
 }

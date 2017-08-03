@@ -15,4 +15,8 @@ public class ZoneService {
     public Object queryZoneList(Long userId) {
         return zoneDao.queryZoneList();
     }
+
+    public void freeZone(Integer zoneId) {
+
+    }
 }

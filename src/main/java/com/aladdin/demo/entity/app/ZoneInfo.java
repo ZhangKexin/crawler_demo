@@ -1,5 +1,6 @@
 package com.aladdin.demo.entity.app;
 
+import com.aladdin.demo.util.serialilzer.BooleanJsonSerializer;
 import com.aladdin.demo.util.serialilzer.IntegerJsonSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -15,6 +16,8 @@ public class ZoneInfo {
     private Integer level;
     @JsonSerialize(using = IntegerJsonSerializer.class)
     private Integer parentId;
+    @JsonSerialize(using = BooleanJsonSerializer.class)
+    private Boolean isFrozen;
 
     public Integer getZoneId() {
         return zoneId;

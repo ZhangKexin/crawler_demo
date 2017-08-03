@@ -1,6 +1,7 @@
 package com.aladdin.demo.controller;
 
 import com.aladdin.demo.entity.Result;
+import com.aladdin.demo.service.ArticleService;
 import com.aladdin.demo.util.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,12 @@ public class ArticleController {
         articleService.publishArticle(userId, zoneId, title, detail);
         return result;
     }
-
+    @RequestMapping("saveDraft")
+    @ResponseBody
+    public Result saveDraft(Long userId, Long zoneId,String title, String detail, ){
+        Result result = CommonUtils.generateSuccessResult();
+        articleService.saveDraft();
+    }
     @RequestMapping("delete")
     @ResponseBody
     public Result deleteArticle(Long userId, Long articleId) {
