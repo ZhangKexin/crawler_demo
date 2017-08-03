@@ -31,7 +31,7 @@ public class ZoneController {
     @ResponseBody
     public Result freezeZone(Integer zoneId) {
         Result result = CommonUtils.generateSuccessResult();
-        zoneService.freeZone(zoneId);
+        zoneService.freezeZone(zoneId);
         return result;
     }
 }
