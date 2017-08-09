@@ -1,10 +1,6 @@
 package com.zkx.bbs.entity;
 
-import com.alibaba.fastjson.JSON;
-import org.apache.commons.lang.StringUtils;
-
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by zkx on 2017/3/20.
@@ -15,7 +11,6 @@ public class User implements Serializable {
     private String password;
     private String phone;
     private Integer credits;
-    private String lastIp;
     private Long lastVisitTime;
     private Integer sex;
     private String signature;
@@ -67,15 +62,6 @@ public class User implements Serializable {
 
     public User setCredits(Integer credits) {
         this.credits = credits;
-        return this;
-    }
-
-    public String getLastIp() {
-        return lastIp;
-    }
-
-    public User setLastIp(String lastIp) {
-        this.lastIp = lastIp;
         return this;
     }
 

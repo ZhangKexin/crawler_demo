@@ -26,7 +26,7 @@ public class UserDao {
         user.setPhone(phone)
                 .setPassword(password)
                 .setCredits(10)
-                .set
+                .setLastVisitTime(CommonUtils.getTimeStamp())
                 .setRegisterTime(CommonUtils.getTimeStamp());
         userDao.insert(NAMESPACE_USER + ".insertUser", user);
         return user.getUserId();
