@@ -2,6 +2,7 @@ package com.zkx.bbs.dao;
 
 import com.zkx.bbs.entity.User;
 import com.zkx.bbs.util.CommonUtils;
+import com.zkx.bbs.util.PasswordHash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -24,7 +25,7 @@ public class UserDao {
     public Long insertUser(String phone, String password) {
         User user = new User();
         user.setPhone(phone)
-                .setPassword(password)
+                .setPassword(PasswordHash.createHash(password))
                 .setCredits(10)
                 .setLastVisitTime(CommonUtils.getTimeStamp())
                 .setRegisterTime(CommonUtils.getTimeStamp());
@@ -32,17 +33,10 @@ public class UserDao {
         return user.getUserId();
     }
 
-    public User queryUserByUserName(String userName) {
-        // TODO: 2017/7/29
-        Map<String, Object> params = new HashMap<String, Object>();
-        params.put("userName", userName);
-        return userDao.selectOne(NAMESPACE_USER + ".queryUserByUserName", params);
-    }
-
     public User queryUserByPhone(String phone) {
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("phone", phone);
-        return userDao.selectOne(NAMESPACE_USER + ".queryUserByUserName", params);
+        return userDao.selectOne(NAMESPACE_USER + ".queryUserByPhone", params);
     }
 
     /*根据用户名密码获取匹配用户数*/

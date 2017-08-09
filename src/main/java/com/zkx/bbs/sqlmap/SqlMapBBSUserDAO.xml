@@ -17,8 +17,18 @@
         <result column="is_banned" property="isBanned"/>
     </resultMap>
 
+    <sql id="user_info">
+        user_id,user_name,password,phone,credits,last_visit_time,sex,signature,image,register_time,payed,is_banned
+    </sql>
     <insert id="insertUser" useGeneratedKeys="true" keyColumn="user_id" keyProperty="userId">
-        INSERT INTO bbs_user(password,phone,register_time)
-        VALUES (#{password},#{phone},#{registerTime})
+        INSERT INTO bbs_user(password,phone,register_time,last_visit_time,credits)
+        VALUES (#{password},#{phone},#{registerTime},#{lastVisitTime},#{credits})
     </insert>
+
+    <select id="queryUserByPhone" resultMap="BBSUser">
+        SELECT
+        <include refid="user_info"/>
+        FROM bbs_user
+        WHERE phone=#{phone}
+    </select>
 </mapper>

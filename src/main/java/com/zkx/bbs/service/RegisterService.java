@@ -14,6 +14,7 @@ public class RegisterService {
     private UserDao userDao;
 
     public Long register(String phone, String password) {
+        // TODO: 2017/8/9 校验是否注册 
         Long userId = userDao.insertUser(phone, password);
         return userId;
     }

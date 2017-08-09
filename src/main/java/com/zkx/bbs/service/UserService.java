@@ -10,7 +10,6 @@ import com.zkx.bbs.exception.ErrorNoException;
 import com.zkx.bbs.exception.UserErrorNo;
 import com.zkx.bbs.util.PasswordHash;
 import com.zkx.bbs.util.UserPassUtils;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -56,15 +55,9 @@ public class UserService {
 //        loginLog.setLoginDate(user.getLastVisit());
 //        loginLogDao.insertLoginLog(loginLog);
 //    }
-
-    public LoginInfo login(String userName, String phone, String password) {
+    public LoginInfo login(String phone, String password) {
         User user = new User();
-        if (StringUtils.isNotBlank(phone)) {
-            user = userDao.queryUserByPhone(phone);
-        }
-        if (StringUtils.isNotBlank(userName)) {
-            user = userDao.queryUserByUserName(userName);
-        }
+        user = userDao.queryUserByPhone(phone);
         checkUser(user, password);
 
         String token = UserPassUtils.generateCookie(user, BBSConstant.Product.APP_DD);

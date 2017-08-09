@@ -25,41 +25,6 @@ public class AccountController {
     private UserService userService;
     @Autowired
     private RegisterService registerService;
-//
-//    @RequestMapping("/loginCheck.html")
-//    public ModelAndView loginCheck(HttpServletRequest request, LoginCommand loginCommand) {
-//        boolean isValidUser = userService.hasMatchUser(loginCommand.getUserName(), loginCommand.getPassword());
-//        if (!isValidUser) {
-//            return new ModelAndView("login", "error", "用户名或密码错误");
-//        }
-//        User user = userService.findUserByUserName(loginCommand.getUserName());
-//        user.setLastIp(request.getRemoteAddr());
-//        user.setLastVisit(new Date());
-//        userService.loginSuccess(user);
-//
-//        request.getSession().setAttribute("user", user);
-//        return new ModelAndView("main");
-//    }
-
-    @RequestMapping("login")
-    @ResponseBody
-    public Object login(@RequestParam(required = false) String username, @RequestParam(required = false) String
-            phone, String password) {
-        if ((StringUtils.isBlank(username) && StringUtils.isBlank(phone)) || StringUtils.isBlank(password)) {
-            throw new ErrorNoException(UserErrorNo.PARAM_ERROR);
-        }
-        LoginInfo loginInfo = userService.login(username, phone, password);
-        Result result = CommonUtils.generateSuccessResult();
-        result.setData(loginInfo);
-        return result;
-    }
-
-    @RequestMapping("recharge")
-    @ResponseBody
-    public Object recharge(Long userId) {
-        Result result = CommonUtils.generateSuccessResult();
-        return result;
-    }
 
     @RequestMapping("register")
     @ResponseBody
@@ -74,5 +39,25 @@ public class AccountController {
         registerService.register(phone, password);
         return result;
     }
+
+    @RequestMapping("login")
+    @ResponseBody
+    public Object login(@RequestParam(required = true) String phone, String password) {
+        if (StringUtils.isBlank(phone) || StringUtils.isBlank(password)) {
+            throw new ErrorNoException(UserErrorNo.PARAM_ERROR);
+        }
+        LoginInfo loginInfo = userService.login(phone, password);
+        Result result = CommonUtils.generateSuccessResult();
+        result.setData(loginInfo);
+        return result;
+    }
+
+    @RequestMapping("pay")
+    @ResponseBody
+    public Object pay(Long userId) {
+        Result result = CommonUtils.generateSuccessResult();
+        return result;
+    }
+
 
 }
