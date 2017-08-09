@@ -1,7 +1,7 @@
 package com.zkx.bbs.exception;
 
 
-import com.zkx.bbs.common.CrawlerConstant;
+import com.zkx.bbs.common.BBSConstant;
 
 public class ErrorNoException extends RuntimeException {
 
@@ -14,7 +14,7 @@ public class ErrorNoException extends RuntimeException {
     }
 
     public ErrorNoException(Integer errorNo) {
-        super(CrawlerConstant.CRAWLER_ERROR_NO.getName(errorNo));
+        super(BBSConstant.CRAWLER_ERROR_NO.getName(errorNo));
         this.errorNo = errorNo;
     }
 

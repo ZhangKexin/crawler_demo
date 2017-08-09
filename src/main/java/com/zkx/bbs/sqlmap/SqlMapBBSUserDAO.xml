@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zkx.bbs.dao.BBSUserDao">
+    <resultMap id="BBSUser" type="com.zkx.bbs.entity.User">
+        <result column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="password" property="password"/>
+        <result column="phone" property="phone"/>
+        <result column="credits" property="credits"/>
+        <result column="last_ip" property="lastIp"/>
+        <result column="last_visit_time" property="lastVisitTime"/>
+        <result column="sex" property="sex"/>
+        <result column="signature" property="signature"/>
+        <result column="image" property="image"/>
+        <result column="register_time" property="registerTime"/>
+        <result column="payed" property="payed"/>
+        <result column="is_banned" property="isBanned"/>
+    </resultMap>
+
+    <insert id="insertUser" useGeneratedKeys="true" keyColumn="user_id" keyProperty="userId">
+        INSERT INTO bbs_user(password,phone,register_time)
+        VALUES (#{password},#{phone},#{registerTime})
+    </insert>
+</mapper>

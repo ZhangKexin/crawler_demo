@@ -1,6 +1,6 @@
 package com.zkx.bbs.aspect;
 
-import com.zkx.bbs.common.CrawlerConstant;
+import com.zkx.bbs.common.BBSConstant;
 import com.zkx.bbs.entity.Result;
 import com.zkx.bbs.exception.ErrorNoException;
 import com.zkx.bbs.exception.UserErrorNo;
@@ -66,12 +66,12 @@ public class LogAspect {
         } catch (ErrorNoException e) {
             LogHome.getLog().error("接口访问报错[" + signature.getDeclaringTypeName() + "." + signature.getName() + "]", e);
             int errorNo = e.getErrorNo();
-            Result result = CommonUtils.generateErrorResult(errorNo, CrawlerConstant.CRAWLER_ERROR_NO.getName(errorNo));
+            Result result = CommonUtils.generateErrorResult(errorNo, BBSConstant.CRAWLER_ERROR_NO.getName(errorNo));
             return result;
         } catch (Throwable t) {
             LogHome.getLog().error("接口访问报错[" + signature.getDeclaringTypeName() + "." + signature.getName() + "]", t);
             int errorNo = UserErrorNo.SERVER_INTERNAL_ERROR;
-            Result result = CommonUtils.generateErrorResult(errorNo, CrawlerConstant.CRAWLER_ERROR_NO.getName(errorNo));
+            Result result = CommonUtils.generateErrorResult(errorNo, BBSConstant.CRAWLER_ERROR_NO.getName(errorNo));
             return result;
         }
     }

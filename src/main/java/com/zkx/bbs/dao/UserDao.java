@@ -1,6 +1,7 @@
 package com.zkx.bbs.dao;
 
 import com.zkx.bbs.entity.User;
+import com.zkx.bbs.util.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -18,7 +19,18 @@ public class UserDao {
     @Autowired
     private BaseDao<User> userDao;
 
-    private static final String NAMESPACE_USER = "";
+    private static final String NAMESPACE_USER = "com.zkx.bbs.dao.BBSUserDao";
+
+    public Long insertUser(String phone, String password) {
+        User user = new User();
+        user.setPhone(phone)
+                .setPassword(password)
+                .setCredits(10)
+                .set
+                .setRegisterTime(CommonUtils.getTimeStamp());
+        userDao.insert(NAMESPACE_USER + ".insertUser", user);
+        return user.getUserId();
+    }
 
     public User queryUserByUserName(String userName) {
         // TODO: 2017/7/29
@@ -58,6 +70,7 @@ public class UserDao {
     /*更新积分、最后登录IP、时间*/
 //    public void updateLoginInfo(User user) {
 //        String sqlStr = "update t_user set credits=?,last_visit=?,last_ip=? where user_id=?";
-//        jdbcTemplate.update(sqlStr, new Object[]{user.getCredits(), user.getLastVisit(), user.getLastIp(), user.getUserId()});
+//        jdbcTemplate.update(sqlStr, new Object[]{user.getCredits(), user.getLastVisit(), user.getLastIp(), user
+// .getUserId()});
 //    }
 }

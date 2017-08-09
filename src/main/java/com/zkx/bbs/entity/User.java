@@ -16,75 +16,14 @@ public class User implements Serializable {
     private String phone;
     private Integer credits;
     private String lastIp;
-    private Date lastVisit;
+    private Long lastVisitTime;
     private Integer sex;
     private String signature;
     private String image;
     private Picture imagePic;
     private Long registerTime;
     private Boolean payed;
-
-    public Boolean getPayed() {
-        return payed;
-    }
-
-    public User setPayed(Boolean payed) {
-        this.payed = payed;
-        return this;
-    }
-
-    public Long getRegisterTime() {
-        return registerTime;
-    }
-
-    public User setRegisterTime(Long registerTime) {
-        this.registerTime = registerTime;
-        return this;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public User setImage(String image) {
-        this.image = image;
-        if (StringUtils.isNotBlank(image)) {
-            this.imagePic = JSON.parseObject(image, Picture.class);
-        }
-        return this;
-    }
-
-    public Picture getImagePic() {
-        return imagePic;
-    }
-
-    public String getSignature() {
-        return signature;
-    }
-
-    public User setSignature(String signature) {
-        this.signature = signature;
-        return this;
-    }
-
-    public Integer getSex() {
-        return sex;
-    }
-
-    public User setSex(Integer sex) {
-        this.sex = sex;
-        return this;
-    }
-
-    public String getPhone() {
-
-        return phone;
-    }
-
-    public User setPhone(String phone) {
-        this.phone = phone;
-        return this;
-    }
+    private Boolean isBanned;
 
     public Long getUserId() {
         return userId;
@@ -113,11 +52,20 @@ public class User implements Serializable {
         return this;
     }
 
-    public int getCredits() {
+    public String getPhone() {
+        return phone;
+    }
+
+    public User setPhone(String phone) {
+        this.phone = phone;
+        return this;
+    }
+
+    public Integer getCredits() {
         return credits;
     }
 
-    public User setCredits(int credits) {
+    public User setCredits(Integer credits) {
         this.credits = credits;
         return this;
     }
@@ -131,12 +79,66 @@ public class User implements Serializable {
         return this;
     }
 
-    public Date getLastVisit() {
-        return lastVisit;
+    public Long getLastVisitTime() {
+        return lastVisitTime;
     }
 
-    public User setLastVisit(Date lastVisit) {
-        this.lastVisit = lastVisit;
+    public User setLastVisitTime(Long lastVisitTime) {
+        this.lastVisitTime = lastVisitTime;
+        return this;
+    }
+
+    public Integer getSex() {
+        return sex;
+    }
+
+    public User setSex(Integer sex) {
+        this.sex = sex;
+        return this;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public User setSignature(String signature) {
+        this.signature = signature;
+        return this;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public User setImage(String image) {
+        this.image = image;
+        return this;
+    }
+
+    public Long getRegisterTime() {
+        return registerTime;
+    }
+
+    public User setRegisterTime(Long registerTime) {
+        this.registerTime = registerTime;
+        return this;
+    }
+
+    public Boolean getPayed() {
+        return payed;
+    }
+
+    public User setPayed(Boolean payed) {
+        this.payed = payed;
+        return this;
+    }
+
+    public Boolean getIsBanned() {
+        return isBanned;
+    }
+
+    public User setIsBanned(Boolean banned) {
+        isBanned = banned;
         return this;
     }
 }

@@ -12,7 +12,7 @@ public class CommonUtils {
         return id == null || id == 0L;
     }
 
-    public Long getTimeStamp() {
+    public static Long getTimeStamp() {
         return Long.valueOf(System.currentTimeMillis() / 1000L);
     }
 

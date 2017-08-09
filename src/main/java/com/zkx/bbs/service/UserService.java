@@ -1,9 +1,8 @@
 package com.zkx.bbs.service;
 
-import com.zkx.bbs.common.CrawlerConstant;
+import com.zkx.bbs.common.BBSConstant;
 import com.zkx.bbs.dao.LoginLogDao;
 import com.zkx.bbs.dao.UserDao;
-import com.zkx.bbs.entity.LoginLog;
 import com.zkx.bbs.entity.User;
 import com.zkx.bbs.entity.app.LoginInfo;
 import com.zkx.bbs.entity.app.UserInfo;
@@ -68,7 +67,7 @@ public class UserService {
         }
         checkUser(user, password);
 
-        String token = UserPassUtils.generateCookie(user, CrawlerConstant.Product.APP_DD);
+        String token = UserPassUtils.generateCookie(user, BBSConstant.Product.APP_DD);
 
         UserInfo userInfo = new UserInfo();
         userInfo.setUserId(user.getUserId())

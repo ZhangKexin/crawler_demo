@@ -6,7 +6,7 @@ import com.zkx.bbs.exception.UserErrorNo;
 /**
  * Created by zkx on 2017/3/22.
  */
-public class CrawlerConstant {
+public class BBSConstant {
 
     public static final String URL_ZHIHU_PREFIX = "https://www.zhihu.com/question";
 
@@ -14,5 +14,10 @@ public class CrawlerConstant {
 
     public static class Product {
         public static final int APP_DD = 1;
+    }
+
+    public class STRING_LENGTH {
+        public static final int PASSWORD_LENGTH_MIN = 8;
+        public static final int PASSWORD_LENGTH_MAX = 30;
     }
 }

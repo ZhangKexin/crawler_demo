@@ -17,6 +17,10 @@ public class BaseDao<E> extends SqlSessionDaoSupport {
         getSqlSession().insert(sql, parameter);
     }
 
+    public void insert(String sql, Object parameter) {
+        getSqlSession().insert(sql, parameter);
+    }
+
     public void delete(String sql) {
         getSqlSession().delete(sql);
     }

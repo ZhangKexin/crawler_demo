@@ -23,7 +23,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="crawlerDataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
-        <property name="mapperLocations" value="classpath*:com/zkx/bbs/**/*.xml"/>
+        <property name="mapperLocations" value="classpath*:com/zkx/bbs/sqlmap/*.xml"/>
     </bean>
 
     <bean id="BaseDao" class="com.zkx.bbs.dao.BaseDao">

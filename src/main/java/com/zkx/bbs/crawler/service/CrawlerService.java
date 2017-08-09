@@ -1,6 +1,6 @@
 package com.zkx.bbs.crawler.service;
 
-import com.zkx.bbs.common.CrawlerConstant;
+import com.zkx.bbs.common.BBSConstant;
 import com.zkx.bbs.crawler.MyCrawler;
 import com.zkx.bbs.crawler.dao.ZhihuQuestionDao;
 import com.zkx.bbs.crawler.entity.ZhihuQuestion;
@@ -33,7 +33,7 @@ public class CrawlerService {
 
         for (int i = start; i < end; i++) {
             String suffix = String.format("%08d", i);
-            crawlController.addSeed(CrawlerConstant.URL_ZHIHU_PREFIX + "/" + suffix);
+            crawlController.addSeed(BBSConstant.URL_ZHIHU_PREFIX + "/" + suffix);
         }
         crawlController.start(MyCrawler.class, threads);
 
