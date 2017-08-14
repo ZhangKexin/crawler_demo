@@ -3,8 +3,10 @@ package com.zkx.bbs.exception;
 /**
  * Created by zkx on 2017/7/25.
  */
-public class SysErrorNo extends GenericEnum<Integer> {
+public class BBSErrorNo extends GenericEnum<Integer> {
     private static final long serialVersionUID = 1L;
+    public static final int SERVER_INTERNAL_ERROR = 500;
+
     public static final int ERR_INVALID_TOKEN = 10000;
     public static final int TOKEN_EXPIRE = 10001;
     public static final int ERR_INVALID_SIGN = 10002;
@@ -14,9 +16,12 @@ public class SysErrorNo extends GenericEnum<Integer> {
     public static final int PARAM_ERROR = 10007;
     public static final int UNAVAILABLE = 10008;
     public static final int COMMENT_DELETED = 10009;
-    public static final int SERVER_INTERNAL_ERROR = 500;
+    public static final int USER_REGISTERED_TO_LOGIN = 10010;
 
-    public SysErrorNo() {
+    public static final int ERR_INVALID_UNAME_OR_PASSWD = 10011;
+    public static final int ERROR_PASSWORD = 10012;
+
+    public BBSErrorNo() {
         this.putEnum(Integer.valueOf(10000), "无效token");
         this.putEnum(Integer.valueOf(10001), "token过期");
         this.putEnum(Integer.valueOf(500), "服务内部错误");
@@ -27,5 +32,7 @@ public class SysErrorNo extends GenericEnum<Integer> {
         this.putEnum(Integer.valueOf(10006), "内容包含敏感词");
         this.putEnum(Integer.valueOf(10008), "暂无查看权限");
         this.putEnum(Integer.valueOf(10009), "该评论已删除");
+        this.putEnum(USER_REGISTERED_TO_LOGIN, "用户已注册，直接登录");
+        this.putEnum(ERR_INVALID_UNAME_OR_PASSWD, "用户名或密码错误");
     }
 }

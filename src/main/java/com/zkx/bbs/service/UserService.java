@@ -6,6 +6,7 @@ import com.zkx.bbs.dao.UserDao;
 import com.zkx.bbs.entity.User;
 import com.zkx.bbs.entity.app.LoginInfo;
 import com.zkx.bbs.entity.app.UserInfo;
+import com.zkx.bbs.exception.BBSErrorNo;
 import com.zkx.bbs.exception.ErrorNoException;
 import com.zkx.bbs.exception.UserErrorNo;
 import com.zkx.bbs.util.PasswordHash;
@@ -83,6 +84,12 @@ public class UserService {
         if (!PasswordHash.validatePassword(password, user.getPassword())) {
             throw new ErrorNoException(UserErrorNo.ERR_INVALID_UNAME_OR_PASSWD);
         }
+    }
+
+    public User queryNormalUser(Long userId) {
+        User user = userDao.queryUserById(userId);
+        if (user == null) throw new ErrorNoException(BBSErrorNo.USER_NOT_EXIST);
+        return user;
     }
 
     public void updateUserInfo(User user) {

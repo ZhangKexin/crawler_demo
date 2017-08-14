@@ -3,11 +3,13 @@ package com.zkx.bbs.controller;
 import com.zkx.bbs.common.BBSConstant;
 import com.zkx.bbs.entity.Result;
 import com.zkx.bbs.entity.app.LoginInfo;
+import com.zkx.bbs.exception.BBSErrorNo;
 import com.zkx.bbs.exception.ErrorNoException;
 import com.zkx.bbs.exception.UserErrorNo;
-import com.zkx.bbs.service.RegisterService;
+import com.zkx.bbs.service.AccountService;
 import com.zkx.bbs.service.UserService;
 import com.zkx.bbs.util.CommonUtils;
+import com.zkx.bbs.util.LogHome;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +26,7 @@ public class AccountController {
     @Autowired
     private UserService userService;
     @Autowired
-    private RegisterService registerService;
+    private AccountService accountService;
 
     @RequestMapping("register")
     @ResponseBody
@@ -33,10 +35,11 @@ public class AccountController {
         if (StringUtils.isBlank(phone) || StringUtils.isBlank(password) ||
                 password.trim().length() < BBSConstant.STRING_LENGTH.PASSWORD_LENGTH_MIN ||
                 password.trim().length() > BBSConstant.STRING_LENGTH.PASSWORD_LENGTH_MAX) {
-            throw new ErrorNoException(UserErrorNo.PARAM_ERROR);
+            LogHome.getLog().error("注册参数缺失，phone:" + phone + ", password:" + password);
+            throw new ErrorNoException(BBSErrorNo.PARAM_ERROR);
         }
         Result result = CommonUtils.generateSuccessResult();
-        registerService.register(phone, password);
+        accountService.register(phone, password);
         return result;
     }
 
@@ -44,11 +47,23 @@ public class AccountController {
     @ResponseBody
     public Object login(@RequestParam(required = true) String phone, String password) {
         if (StringUtils.isBlank(phone) || StringUtils.isBlank(password)) {
-            throw new ErrorNoException(UserErrorNo.PARAM_ERROR);
+            throw new ErrorNoException(BBSErrorNo.PARAM_ERROR);
         }
         LoginInfo loginInfo = userService.login(phone, password);
         Result result = CommonUtils.generateSuccessResult();
         result.setData(loginInfo);
+        return result;
+    }
+
+    @RequestMapping("password/reset")
+    @ResponseBody
+    public Object resetPassword(Long userId, String oldPwd, String newPwd) {
+        if (CommonUtils.isIdNull(userId) || StringUtils.isBlank(oldPwd) || StringUtils.isBlank(newPwd)) {
+            LogHome.getLog().error("重置密码参数缺失，userId:" + userId + ", oldPwd:" + oldPwd + ", newPwd:" + newPwd);
+            throw new ErrorNoException(BBSErrorNo.PARAM_ERROR);
+        }
+        accountService.resetPassword(userId, oldPwd, newPwd);
+        Result result = CommonUtils.generateSuccessResult();
         return result;
     }
 

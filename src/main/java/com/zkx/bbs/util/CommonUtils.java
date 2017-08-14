@@ -8,7 +8,7 @@ import com.zkx.bbs.entity.Result;
  */
 public class CommonUtils {
 
-    public boolean isIdNull(Long id) {
+    public static boolean isIdNull(Long id) {
         return id == null || id == 0L;
     }
 

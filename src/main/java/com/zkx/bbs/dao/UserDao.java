@@ -39,6 +39,13 @@ public class UserDao {
         return userDao.selectOne(NAMESPACE_USER + ".queryUserByPhone", params);
     }
 
+    public User queryUserById(Long userId) {
+        if (CommonUtils.isIdNull(userId)) return null;
+        Map<String, Object> params = new HashMap<>();
+        params.put("userId", userId);
+        return userDao.selectOne(NAMESPACE_USER + ".queryUserById", params);// TODO: 2017/8/14  
+    }
+
     /*根据用户名密码获取匹配用户数*/
 //    public int getMatchCount(String userName, String password) {
 //        String sqlStr = "select count(*) from t_user where user_name=? and password=?";
