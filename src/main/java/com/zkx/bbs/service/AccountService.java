@@ -34,7 +34,7 @@ public class AccountService {
             throw new ErrorNoException(BBSErrorNo.ERR_INVALID_UNAME_OR_PASSWD);
         }
         // TODO: 2017/8/14 校验newPwd格式
-        userDao.updateUser(userId, newPwd);
+        userDao.updateUserPassword(userId, newPwd);
         
     }
 

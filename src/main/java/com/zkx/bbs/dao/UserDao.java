@@ -3,6 +3,7 @@ package com.zkx.bbs.dao;
 import com.zkx.bbs.entity.User;
 import com.zkx.bbs.util.CommonUtils;
 import com.zkx.bbs.util.PasswordHash;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -44,6 +45,14 @@ public class UserDao {
         Map<String, Object> params = new HashMap<>();
         params.put("userId", userId);
         return userDao.selectOne(NAMESPACE_USER + ".queryUserById", params);// TODO: 2017/8/14  
+    }
+
+    public void updateUserPassword(Long userId, String newPwd) {
+        if (CommonUtils.isIdNull(userId) || StringUtils.isBlank(newPwd)) return;
+        Map<String, Object> params = new HashMap<>();
+        params.put("userId", userId);
+        params.put("password", newPwd);
+        userDao.update(NAMESPACE_USER + ".updateUserPassword", params);// TODO: 2017/8/15
     }
 
     /*根据用户名密码获取匹配用户数*/

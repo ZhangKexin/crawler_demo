@@ -1,7 +1,6 @@
 package com.zkx.bbs.dao;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
@@ -47,5 +46,9 @@ public class BaseDao<E> extends SqlSessionDaoSupport {
 
     public Map<Object, E> selectMap(String sql, Object params, String key) {
         return getSqlSession().selectMap(sql, params, key);
+    }
+
+    public int update(String sql, Object params) {
+        return getSqlSession().update(sql, params);
     }
 }
