@@ -68,7 +68,10 @@ public class AccountController {
     }
 
     @RequestMapping("password/forget")
+    @ResponseBody
+    public Result forgetPassword(){}
 
+    @RequestMapping("")
     @RequestMapping("pay")
     @ResponseBody
     public Object pay(Long userId) {
