@@ -42,4 +42,11 @@ public class UserSecurityService {
     public void mofifyPhone(Long userId, String phone, String captcha) {
         // TODO: 2017/8/23  
     }
+
+    /**
+     * 重置密码
+     */
+    public void resetPassword(Long userId, String newPwd) {
+        // TODO: 2017/8/23  
+    }
 }

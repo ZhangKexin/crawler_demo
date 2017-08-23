@@ -54,25 +54,6 @@ public class AccountController {
         return result;
     }
 
-    @RequestMapping("password/reset")
-    @ResponseBody
-    public Object resetPassword(Long userId, String oldPwd, String newPwd) {
-        if (CommonUtils.isIdNull(userId) || StringUtils.isBlank(oldPwd) || StringUtils.isBlank(newPwd)) {
-            LogHome.getLog().error("重置密码参数缺失，userId:" + userId + ", oldPwd:" + oldPwd + ", newPwd:" + newPwd);
-            throw new ErrorNoException(BBSErrorNo.PARAM_ERROR);
-        }
-        accountService.resetPassword(userId, oldPwd, newPwd);
-        Result result = CommonUtils.generateSuccessResult();
-        return result;
-    }
-
-    @RequestMapping("password/forget")
-    @ResponseBody
-    public Result forgetPassword() {
-        Result result = CommonUtils.generateSuccessResult();
-        return result;
-    }
-
     @RequestMapping("pay")
     @ResponseBody
     public Object pay(Long userId) {

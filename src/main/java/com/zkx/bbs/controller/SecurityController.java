@@ -37,6 +37,21 @@ public class SecurityController {
     }
 
     /**
+     * 校验验证码
+     */
+    @RequestMapping("validateCaptcha")
+    @ResponseBody
+    public Result validateCaptcha(Long userId, String phone, String captcha) {
+        if (CommonUtils.isIdNull(userId) || StringUtils.isBlank(phone) || StringUtils.isBlank(captcha)) {
+            LogHome.getLog().error("校验验证码，参数错误, userId:" + userId + ", phone:" + phone + ", captcha:" + captcha);
+            throw new ErrorNoException(BBSErrorNo.PARAM_ERROR);
+        }
+        Result result = CommonUtils.generateSuccessResult();
+        return result;
+    }
+    /*---------------修改密码------------------*/
+
+    /**
      * 校验旧密码
      */
     @RequestMapping("checkRawPwd")
@@ -68,10 +83,29 @@ public class SecurityController {
         return result;
     }
 
+    /*------------忘记密码-------------*/
+
+    /**
+     * 重置密码
+     */
+    @RequestMapping("resetPwd")
+    @ResponseBody
+    public Object resetPassword(Long userId, String newPwd) {
+        if (CommonUtils.isIdNull(userId) || StringUtils.isBlank(newPwd)) {
+            LogHome.getLog().error("重置密码参数缺失，userId:" + userId + ", newPwd:" + newPwd);
+            throw new ErrorNoException(BBSErrorNo.PARAM_ERROR);
+        }
+        securityService.resetPassword(userId, newPwd);
+        Result result = CommonUtils.generateSuccessResult();
+        return result;
+    }
+
+    /*--------------更换手机号-----------------*/
+
     /**
      * 更换手机号-校验手机号
      */
-    @RequestMapping("changePhone/check")
+    @RequestMapping("changePhone/checkPhone")
     @ResponseBody
     public Result checkPhone(Long userId, String phone) {
         if (CommonUtils.isIdNull(userId) || StringUtils.isBlank(phone)) {
@@ -86,7 +120,7 @@ public class SecurityController {
     /**
      * 更换手机号
      */
-    @RequestMapping("changePhone/modify")
+    @RequestMapping("changePhone/modifyPhone")
     @ResponseBody
     public Result modifyPhone(Long userId, String phone, String captcha) {
         if (CommonUtils.isIdNull(userId) || StringUtils.isBlank(phone) || StringUtils.isBlank(captcha)) {
