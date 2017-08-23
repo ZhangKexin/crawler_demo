@@ -46,5 +46,6 @@ public class ArticleController {
     public Result updateArticle(Long userId, Long articleId, String title, String detail) {
         Result result = CommonUtils.generateSuccessResult();
         articleService.updateArticle(userId, articleId, title, detail);
-return result;    }
+        return result;
+    }
 }

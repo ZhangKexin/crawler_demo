@@ -8,7 +8,6 @@ import com.zkx.bbs.entity.app.LoginInfo;
 import com.zkx.bbs.entity.app.UserInfo;
 import com.zkx.bbs.exception.BBSErrorNo;
 import com.zkx.bbs.exception.ErrorNoException;
-import com.zkx.bbs.exception.UserErrorNo;
 import com.zkx.bbs.util.PasswordHash;
 import com.zkx.bbs.util.UserPassUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,10 +78,10 @@ public class UserService {
 
     private void checkUser(User user, String password) {
         if (user == null) {
-            throw new ErrorNoException(UserErrorNo.ERR_INVALID_UNAME_OR_PASSWD);
+            throw new ErrorNoException(BBSErrorNo.ERR_INVALID_UNAME_OR_PASSWD);
         }
         if (!PasswordHash.validatePassword(password, user.getPassword())) {
-            throw new ErrorNoException(UserErrorNo.ERR_INVALID_UNAME_OR_PASSWD);
+            throw new ErrorNoException(BBSErrorNo.ERR_INVALID_UNAME_OR_PASSWD);
         }
     }
 

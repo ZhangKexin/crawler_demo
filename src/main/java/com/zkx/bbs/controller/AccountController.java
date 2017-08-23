@@ -5,7 +5,6 @@ import com.zkx.bbs.entity.Result;
 import com.zkx.bbs.entity.app.LoginInfo;
 import com.zkx.bbs.exception.BBSErrorNo;
 import com.zkx.bbs.exception.ErrorNoException;
-import com.zkx.bbs.exception.UserErrorNo;
 import com.zkx.bbs.service.AccountService;
 import com.zkx.bbs.service.UserService;
 import com.zkx.bbs.util.CommonUtils;
@@ -69,9 +68,11 @@ public class AccountController {
 
     @RequestMapping("password/forget")
     @ResponseBody
-    public Result forgetPassword(){}
+    public Result forgetPassword() {
+        Result result = CommonUtils.generateSuccessResult();
+        return result;
+    }
 
-    @RequestMapping("")
     @RequestMapping("pay")
     @ResponseBody
     public Object pay(Long userId) {

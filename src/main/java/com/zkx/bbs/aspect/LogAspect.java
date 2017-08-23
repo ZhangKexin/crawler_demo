@@ -2,8 +2,8 @@ package com.zkx.bbs.aspect;
 
 import com.zkx.bbs.common.BBSConstant;
 import com.zkx.bbs.entity.Result;
+import com.zkx.bbs.exception.BBSErrorNo;
 import com.zkx.bbs.exception.ErrorNoException;
-import com.zkx.bbs.exception.UserErrorNo;
 import com.zkx.bbs.exception.UserException;
 import com.zkx.bbs.util.CommonUtils;
 import com.zkx.bbs.util.LogHome;
@@ -70,7 +70,7 @@ public class LogAspect {
             return result;
         } catch (Throwable t) {
             LogHome.getLog().error("接口访问报错[" + signature.getDeclaringTypeName() + "." + signature.getName() + "]", t);
-            int errorNo = UserErrorNo.SERVER_INTERNAL_ERROR;
+            int errorNo = BBSErrorNo.SERVER_INTERNAL_ERROR;
             Result result = CommonUtils.generateErrorResult(errorNo, BBSConstant.CRAWLER_ERROR_NO.getName(errorNo));
             return result;
         }
