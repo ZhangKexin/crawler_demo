@@ -28,15 +28,7 @@ public class AccountService {
         return userId;
     }
 
-    public void resetPassword(Long userId, String oldPwd, String newPwd) {
-        User user = userService.queryNormalUser(userId);
-        if (!PasswordHash.validatePassword(oldPwd, user.getPassword())) {
-            throw new ErrorNoException(BBSErrorNo.ERR_INVALID_UNAME_OR_PASSWD);
-        }
-        // TODO: 2017/8/14 校验newPwd格式
-        userDao.updateUserPassword(userId, newPwd);
-        
-    }
+
 
 
 }

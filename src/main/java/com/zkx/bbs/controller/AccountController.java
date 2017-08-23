@@ -27,10 +27,17 @@ public class AccountController {
     @Autowired
     private AccountService accountService;
 
+    /**
+     * 注册
+     *
+     * @param phone
+     * @param password
+     * @return
+     */
     @RequestMapping("register")
     @ResponseBody
     public Object register(@RequestParam(required = true) String phone,
-            @RequestParam(required = true) String password) {
+                           @RequestParam(required = true) String password) {
         if (StringUtils.isBlank(phone) || StringUtils.isBlank(password) ||
                 password.trim().length() < BBSConstant.STRING_LENGTH.PASSWORD_LENGTH_MIN ||
                 password.trim().length() > BBSConstant.STRING_LENGTH.PASSWORD_LENGTH_MAX) {
@@ -42,6 +49,13 @@ public class AccountController {
         return result;
     }
 
+    /**
+     * 登录
+     *
+     * @param phone
+     * @param password
+     * @return
+     */
     @RequestMapping("login")
     @ResponseBody
     public Object login(@RequestParam(required = true) String phone, String password) {
@@ -54,6 +68,12 @@ public class AccountController {
         return result;
     }
 
+    /**
+     * 续费
+     *
+     * @param userId
+     * @return
+     */
     @RequestMapping("pay")
     @ResponseBody
     public Object pay(Long userId) {
