@@ -29,10 +29,6 @@ public class AccountController {
 
     /**
      * 注册
-     *
-     * @param phone
-     * @param password
-     * @return
      */
     @RequestMapping("register")
     @ResponseBody
