@@ -22,6 +22,7 @@ public class ComplaintController {
     @ResponseBody
     public Result complainUser(Long userId, Long toUserId, String message, String images) {
         Result result = CommonUtils.generateSuccessResult();
+        // TODO: 2017/9/3
         complaintService.complainUser(userId, toUserId, message, images);
         return result;
     }
@@ -30,6 +31,7 @@ public class ComplaintController {
     @ResponseBody
     public Result complainArticle(Long userId, Long articleId, String message, String images) {
         Result result = CommonUtils.generateSuccessResult();
+        // TODO: 2017/9/3
         complaintService.complainArticle(userId, articleId, message, images);
         return result;
     }

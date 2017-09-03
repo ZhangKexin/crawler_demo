@@ -10,7 +10,7 @@ public class BBSConstant {
 
     public static final String URL_ZHIHU_PREFIX = "https://www.zhihu.com/question";
 
-    public static final BBSErrorNo CRAWLER_ERROR_NO = new BBSErrorNo();
+    public static final BBSErrorNo BBS_ERROR_NO = new BBSErrorNo();
 
     public static class Product {
         public static final int APP_DD = 1;

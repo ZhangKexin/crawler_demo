@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * Created by zkx on 2017/7/29.
+ * 用户controller
  */
 @Controller
 @RequestMapping("v1/user")
@@ -23,6 +23,7 @@ public class UserController {
     @ResponseBody
     public Result updateUserInfo(User user) {
         Result result = CommonUtils.generateSuccessResult();
+        // TODO: 2017/9/3
         userService.updateUserInfo(user);
         return result;
     }

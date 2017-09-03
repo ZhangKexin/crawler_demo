@@ -32,7 +32,7 @@ public class BaseDao<E> extends SqlSessionDaoSupport {
         return getSqlSession().selectOne(sql);
     }
 
-    public E selectOne(String sql, Map<String, Object> params) {
+    public E selectOne(String sql, Object params) {
         return getSqlSession().selectOne(sql, params);
     }
 

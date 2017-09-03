@@ -14,7 +14,7 @@ public class ErrorNoException extends RuntimeException {
     }
 
     public ErrorNoException(Integer errorNo) {
-        super(BBSConstant.CRAWLER_ERROR_NO.getName(errorNo));
+        super(BBSConstant.BBS_ERROR_NO.getName(errorNo));
         this.errorNo = errorNo;
     }
 

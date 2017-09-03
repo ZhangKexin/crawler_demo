@@ -25,4 +25,9 @@ public class ZoneDao {
     public List<Zone> queryZoneList(Long zoneId) {
         return zoneDao.selectList(NAMESPACE_ZONE + ".queryZoneListByZoneId", zoneId);
     }
+
+    public Zone queryZoneById(Integer zoneId) {
+        if (zoneId == null || zoneId == 0) return null;
+        return zoneDao.selectOne(NAMESPACE_ZONE + ".queryZoneById", zoneId);
+    }
 }

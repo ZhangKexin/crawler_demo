@@ -66,12 +66,12 @@ public class LogAspect {
         } catch (ErrorNoException e) {
             LogHome.getLog().error("接口访问报错[" + signature.getDeclaringTypeName() + "." + signature.getName() + "]", e);
             int errorNo = e.getErrorNo();
-            Result result = CommonUtils.generateErrorResult(errorNo, BBSConstant.CRAWLER_ERROR_NO.getName(errorNo));
+            Result result = CommonUtils.generateErrorResult(errorNo, BBSConstant.BBS_ERROR_NO.getName(errorNo));
             return result;
         } catch (Throwable t) {
             LogHome.getLog().error("接口访问报错[" + signature.getDeclaringTypeName() + "." + signature.getName() + "]", t);
             int errorNo = BBSErrorNo.SERVER_INTERNAL_ERROR;
-            Result result = CommonUtils.generateErrorResult(errorNo, BBSConstant.CRAWLER_ERROR_NO.getName(errorNo));
+            Result result = CommonUtils.generateErrorResult(errorNo, BBSConstant.BBS_ERROR_NO.getName(errorNo));
             return result;
         }
     }

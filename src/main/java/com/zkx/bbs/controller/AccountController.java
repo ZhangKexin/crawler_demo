@@ -74,6 +74,7 @@ public class AccountController {
     @ResponseBody
     public Object pay(Long userId) {
         Result result = CommonUtils.generateSuccessResult();
+        // TODO: 2017/8/25  
         return result;
     }
 

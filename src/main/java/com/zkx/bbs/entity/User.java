@@ -19,6 +19,7 @@ public class User implements Serializable {
     private Long registerTime;
     private Boolean payed;
     private Boolean isBanned;
+    private Boolean isAdmin;
 
     public Long getUserId() {
         return userId;
@@ -126,5 +127,34 @@ public class User implements Serializable {
     public User setIsBanned(Boolean banned) {
         isBanned = banned;
         return this;
+    }
+
+    public Boolean getIsAdmin() {
+        return isAdmin;
+    }
+
+    public User setIsAdmin(Boolean admin) {
+        isAdmin = admin;
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", credits=" + credits +
+                ", lastVisitTime=" + lastVisitTime +
+                ", sex=" + sex +
+                ", signature='" + signature + '\'' +
+                ", image='" + image + '\'' +
+                ", imagePic=" + imagePic +
+                ", registerTime=" + registerTime +
+                ", payed=" + payed +
+                ", isBanned=" + isBanned +
+                ", isAdmin=" + isAdmin +
+                '}';
     }
 }

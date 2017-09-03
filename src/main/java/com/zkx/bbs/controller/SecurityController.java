@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * Created by zkx on 2017/8/21.
+ * 安全中心
  */
 @Controller
 @RequestMapping("v1/security")
@@ -31,6 +31,7 @@ public class SecurityController {
             LogHome.getLog().error("更换手机号发送验证码，参数错误，userId:" + userId + ", phone:" + phone);
             throw new ErrorNoException(BBSErrorNo.PARAM_ERROR);
         }
+        // TODO: 2017/9/3
         Result result = CommonUtils.generateSuccessResult();
         securityService.sendCaptcha(userId, phone);
         return result;
@@ -46,6 +47,7 @@ public class SecurityController {
             LogHome.getLog().error("校验验证码，参数错误, userId:" + userId + ", phone:" + phone + ", captcha:" + captcha);
             throw new ErrorNoException(BBSErrorNo.PARAM_ERROR);
         }
+        // TODO: 2017/9/3
         Result result = CommonUtils.generateSuccessResult();
         return result;
     }
@@ -62,6 +64,7 @@ public class SecurityController {
             LogHome.getLog().error("校验旧密码，参数错误，userId:" + userId + ", rawPwd:" + rawPwd);
             throw new ErrorNoException(BBSErrorNo.PARAM_ERROR);
         }
+        // TODO: 2017/9/3
         Result result = CommonUtils.generateSuccessResult();
         securityService.checkRawPassword(userId, rawPwd);
         return result;
@@ -79,6 +82,7 @@ public class SecurityController {
             throw new ErrorNoException(BBSErrorNo.PARAM_ERROR);
         }
         Result result = CommonUtils.generateSuccessResult();
+        // TODO: 2017/9/3
         securityService.modifyPassword(userId, rawPwd, newPwd);
         return result;
     }
@@ -95,6 +99,7 @@ public class SecurityController {
             LogHome.getLog().error("重置密码参数缺失，userId:" + userId + ", newPwd:" + newPwd);
             throw new ErrorNoException(BBSErrorNo.PARAM_ERROR);
         }
+        // TODO: 2017/9/3
         securityService.resetPassword(userId, newPwd);
         Result result = CommonUtils.generateSuccessResult();
         return result;
@@ -113,6 +118,7 @@ public class SecurityController {
             throw new ErrorNoException(BBSErrorNo.PARAM_ERROR);
         }
         Result result = CommonUtils.generateSuccessResult();
+        // TODO: 2017/9/3
         securityService.checkPhone(userId, phone);
         return result;
     }
@@ -128,6 +134,7 @@ public class SecurityController {
             throw new ErrorNoException(BBSErrorNo.PARAM_ERROR);
         }
         Result result = CommonUtils.generateSuccessResult();
+        // TODO: 2017/9/3
         securityService.mofifyPhone(userId, phone, captcha);
         return result;
     }

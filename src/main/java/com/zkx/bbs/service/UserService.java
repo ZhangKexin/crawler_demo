@@ -56,8 +56,7 @@ public class UserService {
 //        loginLogDao.insertLoginLog(loginLog);
 //    }
     public LoginInfo login(String phone, String password) {
-        User user = new User();
-        user = userDao.queryUserByPhone(phone);
+        User user = userDao.queryUserByPhone(phone);
         checkUser(user, password);
 
         String token = UserPassUtils.generateCookie(user, BBSConstant.Product.APP_DD);

@@ -21,6 +21,9 @@ public class BBSErrorNo extends GenericEnum<Integer> {
     public static final int ERR_INVALID_UNAME_OR_PASSWD = 10011;
     public static final int ERROR_PASSWORD = 10012;
 
+    /*----------ZONE----------*/
+    public static final int ZONE_NOT_EXIST = 10100;
+
     public BBSErrorNo() {
         this.putEnum(Integer.valueOf(10000), "无效token");
         this.putEnum(Integer.valueOf(10001), "token过期");
@@ -34,5 +37,8 @@ public class BBSErrorNo extends GenericEnum<Integer> {
         this.putEnum(Integer.valueOf(10009), "该评论已删除");
         this.putEnum(USER_REGISTERED_TO_LOGIN, "用户已注册，直接登录");
         this.putEnum(ERR_INVALID_UNAME_OR_PASSWD, "用户名或密码错误");
+
+        /*----------ZONE----------*/
+        this.putEnum(ZONE_NOT_EXIST, "版块不存在");
     }
 }
