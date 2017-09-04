@@ -39,7 +39,7 @@ public class ZoneController {
             throw new ErrorNoException(BBSErrorNo.PARAM_ERROR);
         }
         Result result = CommonUtils.generateSuccessResult();
-        result.setData(zoneService.saveZone(userId, zoneName, parentId));
+        zoneService.saveZone(userId, zoneName, parentId);
         return result;
     }
 }

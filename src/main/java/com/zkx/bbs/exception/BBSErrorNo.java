@@ -21,8 +21,12 @@ public class BBSErrorNo extends GenericEnum<Integer> {
     public static final int ERR_INVALID_UNAME_OR_PASSWD = 10011;
     public static final int ERROR_PASSWORD = 10012;
 
+
     /*----------ZONE----------*/
     public static final int ZONE_NOT_EXIST = 10100;
+    public static final int ZONE_LEVEL_TOO_DEEP = 10101;
+    /*----------USER----------*/
+    public static final int USER_NOT_ADMIN = 10200;
 
     public BBSErrorNo() {
         this.putEnum(Integer.valueOf(10000), "无效token");
@@ -40,5 +44,9 @@ public class BBSErrorNo extends GenericEnum<Integer> {
 
         /*----------ZONE----------*/
         this.putEnum(ZONE_NOT_EXIST, "版块不存在");
+        this.putEnum(ZONE_LEVEL_TOO_DEEP, "版块过深");
+
+        /*----------USER----------*/
+        this.putEnum(USER_NOT_ADMIN, "当前用户非管理员");
     }
 }

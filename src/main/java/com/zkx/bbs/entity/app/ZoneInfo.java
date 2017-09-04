@@ -1,8 +1,9 @@
 package com.zkx.bbs.entity.app;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.zkx.bbs.util.serialilzer.BooleanJsonSerializer;
 import com.zkx.bbs.util.serialilzer.IntegerJsonSerializer;
+
+import java.util.List;
 
 /**
  * Created by zkx on 2017/7/30.
@@ -16,8 +17,17 @@ public class ZoneInfo {
     private Integer level;
     @JsonSerialize(using = IntegerJsonSerializer.class)
     private Integer parentId;
-    @JsonSerialize(using = BooleanJsonSerializer.class)
-    private Boolean isFrozen;
+
+    private List<ZoneInfo> subZoneList;
+
+    public List<ZoneInfo> getSubZoneList() {
+        return subZoneList;
+    }
+
+    public ZoneInfo setSubZoneList(List<ZoneInfo> subZoneList) {
+        this.subZoneList = subZoneList;
+        return this;
+    }
 
     public Integer getZoneId() {
         return zoneId;
@@ -53,5 +63,16 @@ public class ZoneInfo {
     public ZoneInfo setParentId(Integer parentId) {
         this.parentId = parentId;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return "ZoneInfo{" +
+                "zoneId=" + zoneId +
+                ", name='" + name + '\'' +
+                ", level=" + level +
+                ", parentId=" + parentId +
+                ", subZoneList=" + subZoneList +
+                '}';
     }
 }
