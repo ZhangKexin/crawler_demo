@@ -1,5 +1,7 @@
 package com.zkx.bbs.entity;
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.List;
 
 /**
@@ -12,8 +14,8 @@ public class Draft {
     private String detail;
     private String images;
     private List<Picture> imageList;
-    private Long zoneId;
-    private Long isDelete;
+    private Integer zoneId;
+    private Boolean isDelete;
     private Long createTime;
     private Long updateTime;
 
@@ -23,6 +25,7 @@ public class Draft {
 
     public Draft setImages(String images) {
         this.images = images;
+        this.imageList = JSON.parseArray(images, Picture.class);
         return this;
     }
 
@@ -31,7 +34,6 @@ public class Draft {
     }
 
     public Draft setImageList(List<Picture> imageList) {
-        this.imageList = imageList;
         return this;
     }
 
@@ -71,20 +73,20 @@ public class Draft {
         return this;
     }
 
-    public Long getZoneId() {
+    public Integer getZoneId() {
         return zoneId;
     }
 
-    public Draft setZoneId(Long zoneId) {
+    public Draft setZoneId(Integer zoneId) {
         this.zoneId = zoneId;
         return this;
     }
 
-    public Long getIsDelete() {
+    public Boolean getIsDelete() {
         return isDelete;
     }
 
-    public Draft setIsDelete(Long isDelete) {
+    public Draft setIsDelete(Boolean isDelete) {
         this.isDelete = isDelete;
         return this;
     }

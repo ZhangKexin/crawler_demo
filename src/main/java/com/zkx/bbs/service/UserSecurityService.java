@@ -29,8 +29,9 @@ public class UserSecurityService {
      * 更换密码
      */
     public void modifyPassword(Long userId, String rawPwd, String newPwd) {
+        User user = userService.queryNormalUser(userId);
         // TODO: 2017/8/23
-        if (!PasswordHash.validatePassword(oldPwd, user.getPassword())) {
+        if (!PasswordHash.validatePassword(rawPwd, user.getPassword())) {
             throw new ErrorNoException(BBSErrorNo.ERR_INVALID_UNAME_OR_PASSWD);
         }
     }
@@ -81,7 +82,7 @@ public class UserSecurityService {
         User user = userService.queryNormalUser(userId);
 
         // TODO: 2017/8/14 校验newPwd格式
-        userDao.updateUserPassword(userId, newPwd);
+        userService.updateUserPassword(userId, newPwd);
 
     }
 }

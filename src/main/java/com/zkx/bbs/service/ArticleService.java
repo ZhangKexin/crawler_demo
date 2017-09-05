@@ -1,6 +1,7 @@
 package com.zkx.bbs.service;
 
 import com.zkx.bbs.dao.ArticleDao;
+import com.zkx.bbs.dao.DraftDao;
 import com.zkx.bbs.entity.User;
 import com.zkx.bbs.entity.Zone;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class ArticleService {
     @Autowired
     private ArticleDao articleDao;
     @Autowired
-    private Draftda
+    private DraftDao draftDao;
     /**
      * 保存草稿
      *

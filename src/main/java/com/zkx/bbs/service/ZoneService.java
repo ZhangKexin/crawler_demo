@@ -28,9 +28,9 @@ public class ZoneService {
         List<Zone> zoneList = zoneDao.queryZoneList();
         Map<String, Object> result = new ResultMap();
         Map<Integer, List<Zone>> zoneMap = new HashMap<>();
-        for (Zone zone:zoneList){
+        for (Zone zone : zoneList) {
         }
-        result.put("zoneList", zoneInfoList);
+        result.put("zoneList", zoneList);
         return result;
     }
 
