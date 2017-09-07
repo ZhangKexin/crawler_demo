@@ -92,4 +92,8 @@ public class UserService {
 
     public void updateUserInfo(User user) {
     }
+
+    public void updateUserPassword(Long userId, String newPwd) {
+        // TODO: 2017/9/7  
+    }
 }
