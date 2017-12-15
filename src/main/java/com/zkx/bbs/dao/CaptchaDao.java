@@ -23,5 +23,7 @@ public class CaptchaDao {
         return captcha;
     }
 
-    public Captcha queryCaptcha(String phone){}
+    public Captcha queryCaptcha(String phone){
+        return null;// TODO: 2017/9/13  
+    }
 }
