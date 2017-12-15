@@ -8,14 +8,14 @@ import java.util.List;
  * Created by zkx on 2017/7/30.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
-public class ZoneListInfo {
-    List<ZoneInfo> zoneList;
+public class ThemeListInfo {
+    List<ThemeInfo> zoneList;
 
-    public List<ZoneInfo> getZoneList() {
+    public List<ThemeInfo> getZoneList() {
         return zoneList;
     }
 
-    public ZoneListInfo setZoneList(List<ZoneInfo> zoneList) {
+    public ThemeListInfo setZoneList(List<ThemeInfo> zoneList) {
         this.zoneList = zoneList;
         return this;
     }

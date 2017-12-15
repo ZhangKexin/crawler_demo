@@ -9,7 +9,7 @@ import java.util.List;
  * Created by zkx on 2017/7/30.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
-public class ZoneInfo {
+public class ThemeInfo {
     @JsonSerialize(using = IntegerJsonSerializer.class)
     private Integer zoneId;
     private String name;
@@ -18,13 +18,13 @@ public class ZoneInfo {
     @JsonSerialize(using = IntegerJsonSerializer.class)
     private Integer parentId;
 
-    private List<ZoneInfo> subZoneList;
+    private List<ThemeInfo> subZoneList;
 
-    public List<ZoneInfo> getSubZoneList() {
+    public List<ThemeInfo> getSubZoneList() {
         return subZoneList;
     }
 
-    public ZoneInfo setSubZoneList(List<ZoneInfo> subZoneList) {
+    public ThemeInfo setSubZoneList(List<ThemeInfo> subZoneList) {
         this.subZoneList = subZoneList;
         return this;
     }
@@ -33,7 +33,7 @@ public class ZoneInfo {
         return zoneId;
     }
 
-    public ZoneInfo setZoneId(Integer zoneId) {
+    public ThemeInfo setZoneId(Integer zoneId) {
         this.zoneId = zoneId;
         return this;
     }
@@ -42,7 +42,7 @@ public class ZoneInfo {
         return name;
     }
 
-    public ZoneInfo setName(String name) {
+    public ThemeInfo setName(String name) {
         this.name = name;
         return this;
     }
@@ -51,7 +51,7 @@ public class ZoneInfo {
         return level;
     }
 
-    public ZoneInfo setLevel(Integer level) {
+    public ThemeInfo setLevel(Integer level) {
         this.level = level;
         return this;
     }
@@ -60,7 +60,7 @@ public class ZoneInfo {
         return parentId;
     }
 
-    public ZoneInfo setParentId(Integer parentId) {
+    public ThemeInfo setParentId(Integer parentId) {
         this.parentId = parentId;
         return this;
     }
