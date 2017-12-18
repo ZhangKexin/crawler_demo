@@ -1,4 +1,4 @@
-package com.zkx.bbs.controller;
+package com.zkx.bbs.control;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

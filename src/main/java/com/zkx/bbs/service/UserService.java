@@ -55,25 +55,7 @@ public class UserService {
 //        loginLog.setLoginDate(user.getLastVisit());
 //        loginLogDao.insertLoginLog(loginLog);
 //    }
-    public LoginInfo login(String phone, String password) {
-        User user = userDao.queryUserByPhone(phone);
-        checkUser(user, password);
 
-        String token = UserPassUtils.generateCookie(user, BBSConstant.Product.APP_DD);
-
-        UserInfo userInfo = new UserInfo();
-        userInfo.setUserId(user.getUserId())
-                .setPhone(user.getPhone())
-                .setSex(user.getSex())
-                .setSignature(user.getSignature())
-                .setUserImage(user.getImage())
-                .setUserName(user.getUserName());
-
-        LoginInfo loginInfo = new LoginInfo();
-        loginInfo.setToken(token)
-                .setUserInfo(userInfo);
-        return loginInfo;
-    }
 
     private void checkUser(User user, String password) {
         if (user == null) {
@@ -95,5 +77,8 @@ public class UserService {
 
     public void updateUserPassword(Long userId, String newPwd) {
         // TODO: 2017/9/7
+    }
+
+    public User queryUserByAccount(String account) {
     }
 }

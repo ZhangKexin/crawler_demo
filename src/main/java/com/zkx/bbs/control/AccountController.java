@@ -1,4 +1,4 @@
-package com.zkx.bbs.controller;
+package com.zkx.bbs.control;
 
 import com.zkx.bbs.common.BBSConstant;
 import com.zkx.bbs.entity.Result;
@@ -45,24 +45,7 @@ public class AccountController {
         return result;
     }
 
-    /**
-     * 登录
-     *
-     * @param phone
-     * @param password
-     * @return
-     */
-    @RequestMapping("login")
-    @ResponseBody
-    public Object login(@RequestParam(required = true) String phone, String password) {
-        if (StringUtils.isBlank(phone) || StringUtils.isBlank(password)) {
-            throw new ErrorNoException(BBSErrorNo.PARAM_ERROR);
-        }
-        LoginInfo loginInfo = userService.login(phone, password);
-        Result result = CommonUtils.generateSuccessResult();
-        result.setData(loginInfo);
-        return result;
-    }
+
 
     /**
      * 续费

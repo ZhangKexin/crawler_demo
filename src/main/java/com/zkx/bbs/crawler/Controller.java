@@ -27,7 +27,7 @@ public class Controller {
             String s = String.format("%02d", i);
             controller.addSeed("https://www.zhihu.com/question/314278" + s);
         }
-//        controller.addSeed("https://www.zhihu.com/question/31427895" );
+//        control.addSeed("https://www.zhihu.com/question/31427895" );
         Long startTime = System.currentTimeMillis();
         controller.start(MyCrawler.class, numOfCrawlers);
         System.out.println(controller.isFinished());

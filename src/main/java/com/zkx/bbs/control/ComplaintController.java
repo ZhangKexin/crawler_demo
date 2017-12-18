@@ -1,4 +1,4 @@
-package com.zkx.bbs.controller;
+package com.zkx.bbs.control;
 
 import com.zkx.bbs.entity.Result;
 import com.zkx.bbs.service.ComplaintService;

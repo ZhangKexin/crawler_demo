@@ -1,4 +1,4 @@
-package com.zkx.bbs.controller;
+package com.zkx.bbs.control;
 
 import com.zkx.bbs.crawler.service.CrawlerService;
 import org.springframework.beans.factory.annotation.Autowired;
