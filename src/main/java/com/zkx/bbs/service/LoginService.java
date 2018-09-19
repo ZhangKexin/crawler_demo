@@ -38,7 +38,9 @@ public class LoginService {
         return loginInfo;
     }
 
-    public Map<String,Object> checkToken(String ddtoken) {
+    public Map<String, Object> checkToken(String ddtoken) {
+        // TODO: 2018/3/30
+        return null;
     }
 
     public void logout(String ddtoken, Long userId) {

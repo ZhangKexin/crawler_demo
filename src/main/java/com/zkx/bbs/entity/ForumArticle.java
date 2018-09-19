@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by zkx on 2017/7/30.
  */
-public class Article {
+public class ForumArticle {
     private Long articleId;
     private Long userId;
 
@@ -32,7 +32,7 @@ public class Article {
         return longitude;
     }
 
-    public Article setLongitude(Double longitude) {
+    public ForumArticle setLongitude(Double longitude) {
         this.longitude = longitude;
         return this;
     }
@@ -41,7 +41,7 @@ public class Article {
         return latitude;
     }
 
-    public Article setLatitude(Double latitude) {
+    public ForumArticle setLatitude(Double latitude) {
         this.latitude = latitude;
         return this;
     }
@@ -51,7 +51,7 @@ public class Article {
         return parentArticleId;
     }
 
-    public Article setParentArticleId(Long parentArticleId) {
+    public ForumArticle setParentArticleId(Long parentArticleId) {
         this.parentArticleId = parentArticleId;
         return this;
     }
@@ -60,7 +60,7 @@ public class Article {
         return articleId;
     }
 
-    public Article setArticleId(Long articleId) {
+    public ForumArticle setArticleId(Long articleId) {
         this.articleId = articleId;
         return this;
     }
@@ -69,7 +69,7 @@ public class Article {
         return userId;
     }
 
-    public Article setUserId(Long userId) {
+    public ForumArticle setUserId(Long userId) {
         this.userId = userId;
         return this;
     }
@@ -78,7 +78,7 @@ public class Article {
         return title;
     }
 
-    public Article setTitle(String title) {
+    public ForumArticle setTitle(String title) {
         this.title = title;
         return this;
     }
@@ -87,7 +87,7 @@ public class Article {
         return images;
     }
 
-    public Article setImages(String images) {
+    public ForumArticle setImages(String images) {
         this.images = images;
         if (StringUtils.isNotBlank(images)) {
             this.imageList = JSON.parseArray(images, Picture.class);
@@ -103,7 +103,7 @@ public class Article {
         return location;
     }
 
-    public Article setLocation(String location) {
+    public ForumArticle setLocation(String location) {
         this.location = location;
         return this;
     }
@@ -112,7 +112,7 @@ public class Article {
         return isTop;
     }
 
-    public Article setTop(Boolean top) {
+    public ForumArticle setTop(Boolean top) {
         isTop = top;
         return this;
     }
@@ -121,7 +121,7 @@ public class Article {
         return isDelete;
     }
 
-    public Article setDelete(Boolean delete) {
+    public ForumArticle setDelete(Boolean delete) {
         isDelete = delete;
         return this;
     }
@@ -130,7 +130,7 @@ public class Article {
         return createTime;
     }
 
-    public Article setCreateTime(Long createTime) {
+    public ForumArticle setCreateTime(Long createTime) {
         this.createTime = createTime;
         return this;
     }
@@ -139,7 +139,7 @@ public class Article {
         return updateTime;
     }
 
-    public Article setUpdateTime(Long updateTime) {
+    public ForumArticle setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
         return this;
     }

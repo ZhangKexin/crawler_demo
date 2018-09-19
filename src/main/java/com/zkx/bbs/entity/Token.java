@@ -1,6 +1,6 @@
 package com.zkx.bbs.entity;
 
-public class Token {
+public class Token {// TODO: 2018/3/30  
     private Long userId;
     private String userPhone;
     private int product;

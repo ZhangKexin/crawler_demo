@@ -21,5 +21,4 @@ public class BBSConstant {
         public static final int PASSWORD_LENGTH_MAX = 30;
     }
 
-    public static final int MAX_ZONE_LEVEL = 2;
 }

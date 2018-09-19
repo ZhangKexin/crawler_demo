@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * 版块controller
+ * 版块
  */
 @Controller
 @RequestMapping("v1/zone")
@@ -24,10 +24,12 @@ public class ZoneController {
 
     @RequestMapping("list")
     @ResponseBody
-    public Result queryZoneList(Long userId) {
+    public Result queryAllZoneList(Long userId) {
+        if (CommonUtils.isIdNull(userId)) {
+            throw new ErrorNoException(BBSErrorNo.PARAM_ERROR);
+        }
         Result result = CommonUtils.generateSuccessResult();
-        // TODO: 2017/9/3
-        result.setData(zoneService.queryZoneList(userId));
+        result.setData(zoneService.queryAllZoneList(userId));
         return result;
     }
 

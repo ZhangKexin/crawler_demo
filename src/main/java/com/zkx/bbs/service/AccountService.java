@@ -1,6 +1,5 @@
 package com.zkx.bbs.service;
 
-import com.zkx.bbs.dao.UserDao;
 import com.zkx.bbs.entity.User;
 import com.zkx.bbs.exception.BBSErrorNo;
 import com.zkx.bbs.exception.ErrorNoException;

@@ -1,141 +1,140 @@
 package com.zkx.bbs.entity;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  * Created by zkx on 2017/3/20.
  */
-public class User implements Serializable {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties()
+public class User {
     private Long userId;
     private String userName;
     private String password;
     private String phone;
     private Integer credits;
     private Long lastVisitTime;
+    private String fmtLastVisitTime;
     private Integer sex;
     private String signature;
     private String image;
-    private Picture imagePic;
     private Long registerTime;
     private Boolean payed;
     private Boolean isBanned;
     private Boolean isAdmin;
 
+
+    public String getFmtLastVisitTime() {
+        return fmtLastVisitTime;
+    }
+
+    public void setFmtLastVisitTime(String fmtLastVisitTime) {
+        this.fmtLastVisitTime = fmtLastVisitTime;
+    }
+
     public Long getUserId() {
         return userId;
     }
 
-    public User setUserId(Long userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
-        return this;
     }
 
     public String getUserName() {
         return userName;
     }
 
-    public User setUserName(String userName) {
+    public void setUserName(String userName) {
         this.userName = userName;
-        return this;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public User setPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
-        return this;
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public User setPhone(String phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
-        return this;
     }
 
     public Integer getCredits() {
         return credits;
     }
 
-    public User setCredits(Integer credits) {
+    public void setCredits(Integer credits) {
         this.credits = credits;
-        return this;
     }
 
     public Long getLastVisitTime() {
         return lastVisitTime;
     }
 
-    public User setLastVisitTime(Long lastVisitTime) {
+    public void setLastVisitTime(Long lastVisitTime) {
         this.lastVisitTime = lastVisitTime;
-        return this;
     }
 
     public Integer getSex() {
         return sex;
     }
 
-    public User setSex(Integer sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
-        return this;
     }
 
     public String getSignature() {
         return signature;
     }
 
-    public User setSignature(String signature) {
+    public void setSignature(String signature) {
         this.signature = signature;
-        return this;
     }
 
     public String getImage() {
         return image;
     }
 
-    public User setImage(String image) {
+    public void setImage(String image) {
         this.image = image;
-        return this;
     }
 
     public Long getRegisterTime() {
         return registerTime;
     }
 
-    public User setRegisterTime(Long registerTime) {
+    public void setRegisterTime(Long registerTime) {
         this.registerTime = registerTime;
-        return this;
     }
 
     public Boolean getPayed() {
         return payed;
     }
 
-    public User setPayed(Boolean payed) {
+    public void setPayed(Boolean payed) {
         this.payed = payed;
-        return this;
     }
 
     public Boolean getIsBanned() {
         return isBanned;
     }
 
-    public User setIsBanned(Boolean banned) {
+    public void setIsBanned(Boolean banned) {
         isBanned = banned;
-        return this;
     }
 
     public Boolean getIsAdmin() {
         return isAdmin;
     }
 
-    public User setIsAdmin(Boolean admin) {
+    public void setIsAdmin(Boolean admin) {
         isAdmin = admin;
-        return this;
     }
 
     @Override
@@ -150,7 +149,6 @@ public class User implements Serializable {
                 ", sex=" + sex +
                 ", signature='" + signature + '\'' +
                 ", image='" + image + '\'' +
-                ", imagePic=" + imagePic +
                 ", registerTime=" + registerTime +
                 ", payed=" + payed +
                 ", isBanned=" + isBanned +

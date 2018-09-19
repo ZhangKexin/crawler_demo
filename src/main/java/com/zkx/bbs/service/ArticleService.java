@@ -1,9 +1,7 @@
 package com.zkx.bbs.service;
 
-import com.zkx.bbs.dao.ArticleDao;
-import com.zkx.bbs.dao.DraftDao;
 import com.zkx.bbs.entity.User;
-import com.zkx.bbs.entity.Zone;
+import com.zkx.bbs.entity.ForumZone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +15,6 @@ public class ArticleService {
     @Autowired
     private ZoneService zoneService;
 
-    @Autowired
-    private ArticleDao articleDao;
-    @Autowired
-    private DraftDao draftDao;
     /**
      * 保存草稿
      *
@@ -32,7 +26,7 @@ public class ArticleService {
      */
     public void saveDraft(Long userId, Integer zoneId, String title, String detail, String detailImages) {
         User user = userService.queryNormalUser(userId);
-        Zone zone = zoneService.queryNormalZone(zoneId);
+        ForumZone forumZone = zoneService.queryNormalZone(zoneId);
 
     }
 

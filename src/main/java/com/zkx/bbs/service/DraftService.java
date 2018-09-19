@@ -1,12 +1,13 @@
-package com.zkx.bbs.dao;
+package com.zkx.bbs.service;
 
+import com.zkx.bbs.dao.BaseDao;
 import com.zkx.bbs.entity.Draft;
 import com.zkx.bbs.util.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class DraftDao {
+public class DraftService {
 
     @Autowired
     private BaseDao<Draft> draftDao;
